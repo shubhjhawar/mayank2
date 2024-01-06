@@ -13,6 +13,7 @@ import {Tabs} from '@common/ui/tabs/tabs';
 import {TabList} from '@common/ui/tabs/tab-list';
 import {Tab} from '@common/ui/tabs/tab';
 import {Link, Outlet, useLocation} from 'react-router-dom';
+import { PersonPrimaryFactsForm } from './person-primary-facts-form';
 
 export function UpdatePersonPage() {
   const query = usePerson({
@@ -46,6 +47,7 @@ function PageContent({data}: PageContentProps) {
       death_date: person.death_date,
       birth_place: person.birth_place,
       description: person.description,
+      body: person.body,
       gender: person.gender,
       popularity: person.popularity,
     },
@@ -86,7 +88,8 @@ function PageContent({data}: PageContentProps) {
         </TabList>
         <div className="pt-24 min-h-512">
           <FileUploadProvider>
-            <Outlet context={data} />
+            {/* <Outlet context={data} /> */}
+            <PersonPrimaryFactsForm form={form} />
           </FileUploadProvider>
         </div>
       </Tabs>

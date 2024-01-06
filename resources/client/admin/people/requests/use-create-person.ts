@@ -19,6 +19,7 @@ export interface CreatePersonPayload {
   death_date: string;
   birth_place: string;
   description: string;
+  body: string;
   gender: string;
   popularity: number;
 }

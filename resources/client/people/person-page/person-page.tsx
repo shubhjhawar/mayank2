@@ -18,7 +18,7 @@ import {AdHost} from '@common/admin/ads/ad-host';
 
 export function PersonPage() {
   const query = usePerson();
-
+  console.log(query.data)
   const content = query.data ? (
     <Fragment>
       <PageMetaTags query={query} />
@@ -58,7 +58,7 @@ interface BiographyProps {
   person: Person;
 }
 function Biography({person}: BiographyProps) {
-  if (!person.description) return null;
+  if (!person.body) return null;
   return (
     <Fragment>
       <SiteSectionHeading fontSize="text-xl">
@@ -66,7 +66,7 @@ function Biography({person}: BiographyProps) {
       </SiteSectionHeading>
       <TruncatedDescription
         className="text-sm"
-        description={person.description}
+        description={person.body}
       />
     </Fragment>
   );

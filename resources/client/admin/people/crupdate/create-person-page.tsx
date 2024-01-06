@@ -38,7 +38,7 @@ export function CreatePersonPage() {
       disableSaveWhenNotDirty
     >
       <FileUploadProvider>
-        <PersonPrimaryFactsForm />
+        <PersonPrimaryFactsForm form={form} />
       </FileUploadProvider>
     </CrupdateResourceLayout>
   );

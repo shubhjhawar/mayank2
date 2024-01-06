@@ -16,5 +16,6 @@ export interface Person {
   popularity?: number;
   updated_at?: string;
   description: string;
+  body: string;
   model_type: typeof PERSON_MODEL;
 }
