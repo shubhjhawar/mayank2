@@ -48,6 +48,8 @@ import {TitleInsightsPage} from '@app/admin/reports/pages/title-insights-page';
 import {EpisodeInsightsPage} from '@app/admin/reports/pages/episode-insights-page';
 import {SeasonInsightsPage} from '@app/admin/reports/pages/season-insights-page';
 import {VideoInsightsPage} from '@app/admin/reports/pages/video-insights-page';
+import { useForm } from 'react-hook-form';
+import { CreatePersonPayload } from './people/requests/use-create-person';
 
 export const AppAdminRoutes: RouteObject[] = [
   // Reports
@@ -107,7 +109,7 @@ export const AppAdminRoutes: RouteObject[] = [
       },
       {
         path: 'primary-facts',
-        element: <PersonPrimaryFactsForm />,
+        element: <FormElement />,
       },
       {
         path: 'credits',
@@ -347,3 +349,9 @@ export const AppAdminRoutes: RouteObject[] = [
     element: <TitleTagsDatatablePage type={GENRE_MODEL} />,
   },
 ];
+
+function FormElement() {
+  const form = useForm<CreatePersonPayload>();
+
+  return <PersonPrimaryFactsForm form={form} />;
+}

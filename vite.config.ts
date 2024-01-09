@@ -3,6 +3,10 @@ import react from '@vitejs/plugin-react-swc';
 import laravel from 'laravel-vite-plugin';
 import tsconfigPaths from 'vite-tsconfig-paths';
 import replace from '@rollup/plugin-replace';
+import * as path from 'path';
+import { resolve } from 'path';
+// const path = require('path');
+
 
 // override laravel plugin base option (from absolute to relative to html base tag)
 function basePath(): Plugin {
@@ -11,7 +15,7 @@ function basePath(): Plugin {
     enforce: 'post',
     config: () => {
       return {
-        base: '',
+        base: 'https://demo.kvspt.com/',
       };
     },
   };
@@ -27,9 +31,14 @@ export default defineConfig({
   base: '',
   resolve: {
     preserveSymlinks: true,
+    alias: {
+      '@common': path.resolve(__dirname, 'common/resources/client/'),
+      '@app': path.resolve(__dirname, 'resources/client/'),
+    },
   },
   build: {
     sourcemap: true,
+    chunkSizeWarningLimit: 2000,
   },
   plugins: [
     tsconfigPaths(),
