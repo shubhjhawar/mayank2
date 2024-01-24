@@ -17,10 +17,9 @@ import {IllustratedMessage} from '@common/ui/images/illustrated-message';
 import {Trans} from '@common/i18n/trans';
 import {SvgImage} from '@common/ui/images/svg-image/svg-image';
 import todoImage from '@app/admin/lists/todo.svg';
+import { BirthdayContentCarousel } from './carousel/birthday-content-caraousel';
 
-export interface ChannelContentProps<
-  T extends ChannelContentModel = ChannelContentModel
-> {
+export interface ChannelContentProps<T extends ChannelContentModel = ChannelContentModel> {
   channel: Channel<T>;
   isNested: boolean;
 }
@@ -106,6 +105,7 @@ function NestedChannels({channel, isNested}: ChannelContentProps) {
           />
         </div>
       ))}
+      <BirthdayContentCarousel />
     </Fragment>
   );
 }

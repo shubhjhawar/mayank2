@@ -16,6 +16,7 @@ export function useChannel(
   const params = useParams();
   const channelId = slugOrId || params.slugOrId!;
   const queryParams = useChannelQueryParams(undefined, userParams);
+
   return useQuery(
     // only refetch when channel ID or restriction changes and not query params.
     // content will be re-fetched in channel content components
@@ -28,6 +29,7 @@ export function channelQueryKey(
   slugOrId: number | string,
   params?: Record<string, string | null>
 ) {
+  
   return ['channel', `${slugOrId}`, params];
 }
 
